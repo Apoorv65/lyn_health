@@ -1,3 +1,4 @@
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -105,201 +106,203 @@ class _FirstConsultationState extends State<FirstConsultation> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const SizedBox(height: 40),
-            Center(
-                child: Text('Begin by finding a time to meet us.',
-                    style: GoogleFonts.montserrat(fontSize: 45))),
-            const SizedBox(height: 20),
-            Container(),
-            SizedBox(
-                height: h * .79,
-                width: w * .85,
-                child: Padding(
-                  padding: const EdgeInsets.all(40),
-                  child: ValueListenableBuilder(
-                    valueListenable: changeNotifier,
-                    builder: (BuildContext context, value, Widget? child) {
-                      if(changeNotifier.value== true){
-                        selectedTabIndex = 2;
-                      }
-                      return getTabsWidget(selectedTabIndex);
-                    },
-                  ),
-                )),
-            const SizedBox(height: 20),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: w * .15,
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ConstrainedBox(
-                        constraints: const BoxConstraints.tightFor(
-                            height: 200, width: 150),
-                        child: Image.asset(
-                          'assets/img/01.jpeg',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      Flexible(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 50),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Thirath Chau, MD',
-                                    style: GoogleFonts.montserrat(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 22)),
-                                const SizedBox(height: 10),
-                                Text(
-                                    'Dr. Chau is a Family Medicine physician with over a decade of experience in managing complex chronic medical conditions. He serves as Lyn Health’s Chief Medical Officer with a special interest in serving communities that need great quality and accessible care. He is board certified by the American Board of Family Medicine and the American Board of Wound Management.',
-                                    style: GoogleFonts.montserrat(fontSize: 18),
-                                    overflow: TextOverflow.visible),
-                              ]),
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ConstrainedBox(
-                        constraints: const BoxConstraints.tightFor(
-                            height: 200, width: 150),
-                        child: Image.asset(
-                          'assets/img/eric_bautista.jpeg',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      Flexible(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 50),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Eric Bautista, MD',
-                                    style: GoogleFonts.montserrat(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 22)),
-                                const SizedBox(height: 10),
-                                Text(
-                                    'An exceptional highly qualified provider, Dr. Eric Bautista serves as Lyn\'s Medical Director, taking a fresh, human-centered approach to people with multiple conditions. He obtained his bachelor\'s degree at Williams College, medical degree at the University of Washington School of Medicine, and internal medicine residency training at Kaiser San Francisco. In his spare time he loves to surf and ski, and enjoys traveling and studying other cultures.',
-                                    style: GoogleFonts.montserrat(fontSize: 18),
-                                    overflow: TextOverflow.visible),
-                              ]),
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ConstrainedBox(
-                        constraints: const BoxConstraints.tightFor(
-                            height: 200, width: 150),
-                        child: Image.asset(
-                          'assets/img/03.jpeg',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      Flexible(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 50),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Jessica Luna-Oliver',
-                                    style: GoogleFonts.montserrat(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 22)),
-                                const SizedBox(height: 10),
-                                Text(
-                                  'With over 30 years of experience as a Nurse in the healthcare industry, Jessica is a dedicated and passionate Care Partner at Lyn. Her vast background gives her a unique specialty to guide Members with multiple chronic conditions to meet their goals. Her passion is to guide, teach and listen to each member to inspire and cultivate a healthier lifestyle. Jessica is a proud grandmother of 8, and loves to bake.',
-                                  style: GoogleFonts.montserrat(fontSize: 18),
-                                  overflow: TextOverflow.visible,
-                                ),
-                              ]),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(height: 30),
-            Container(
-              width: w,
-              height: h * .2,
-              color: const Color(0xfff8f7f1),
-              padding: EdgeInsets.symmetric(horizontal: w * .1, vertical: 20),
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      InkWell(
-                          onTap: () {},
-                          child: const Text('Privacy & Security',
-                              style: TextStyle(
-                                  color: Color(0xff000000), fontSize: 15))),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      InkWell(
-                          onTap: () {},
-                          child: const Text('Terms of use',
-                              style: TextStyle(
-                                  color: Color(0xff000000), fontSize: 15))),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      InkWell(
-                          onTap: () {},
-                          child: const Text('Privacy policy',
-                              style: TextStyle(
-                                  color: Color(0xff000000), fontSize: 15))),
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Flexible(
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                              ' \u00a9 2023. Lyn Health, Inc. All rights reserved.',
-                              style: TextStyle(
-                                  color: Color(0xff000000), fontSize: 15)),
-                          SizedBox(
-                            height: 10,
+        child: DelayedDisplay(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const SizedBox(height: 40),
+              Center(
+                  child: Text('Begin by finding a time to meet us.',
+                      style: GoogleFonts.montserrat(fontSize: 45))),
+              const SizedBox(height: 20),
+              Container(),
+              SizedBox(
+                  height: h * .79,
+                  width: w * .85,
+                  child: Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: ValueListenableBuilder(
+                      valueListenable: changeNotifier,
+                      builder: (BuildContext context, value, Widget? child) {
+                        if(changeNotifier.value== true){
+                          selectedTabIndex = 2;
+                        }
+                        return getTabsWidget(selectedTabIndex);
+                      },
+                    ),
+                  )),
+              const SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: w * .15,
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ConstrainedBox(
+                          constraints: const BoxConstraints.tightFor(
+                              height: 200, width: 150),
+                          child: Image.asset(
+                            'assets/img/01.jpeg',
+                            fit: BoxFit.fill,
                           ),
-                          Text(
-                            'If you, a friend or a loved one are having suicidal thoughts, call the National Suicide Prevention Lifeline at 800-273-8255 (800-273-TALK) for free and confidential support. It is open 24 hours a day, seven days a week. For crisis support in Spanish, call 888-628-9454. The Trevor Project, a suicide prevention counseling service for the LGBTQ+ community, can be reached at 866-488-7386.',
-                            overflow: TextOverflow.ellipsis,
-                            softWrap: false,
-                            maxLines: 3,
-                            style: TextStyle(
-                                color: Color(0xff000000), fontSize: 15),
-                          )
-                        ]),
-                  ),
-                ],
+                        ),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 50),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Thirath Chau, MD',
+                                      style: GoogleFonts.montserrat(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 22)),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                      'Dr. Chau is a Family Medicine physician with over a decade of experience in managing complex chronic medical conditions. He serves as Lyn Health’s Chief Medical Officer with a special interest in serving communities that need great quality and accessible care. He is board certified by the American Board of Family Medicine and the American Board of Wound Management.',
+                                      style: GoogleFonts.montserrat(fontSize: 18),
+                                      overflow: TextOverflow.visible),
+                                ]),
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ConstrainedBox(
+                          constraints: const BoxConstraints.tightFor(
+                              height: 200, width: 150),
+                          child: Image.asset(
+                            'assets/img/eric_bautista.jpeg',
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 50),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Eric Bautista, MD',
+                                      style: GoogleFonts.montserrat(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 22)),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                      'An exceptional highly qualified provider, Dr. Eric Bautista serves as Lyn\'s Medical Director, taking a fresh, human-centered approach to people with multiple conditions. He obtained his bachelor\'s degree at Williams College, medical degree at the University of Washington School of Medicine, and internal medicine residency training at Kaiser San Francisco. In his spare time he loves to surf and ski, and enjoys traveling and studying other cultures.',
+                                      style: GoogleFonts.montserrat(fontSize: 18),
+                                      overflow: TextOverflow.visible),
+                                ]),
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ConstrainedBox(
+                          constraints: const BoxConstraints.tightFor(
+                              height: 200, width: 150),
+                          child: Image.asset(
+                            'assets/img/03.jpeg',
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 50),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Jessica Luna-Oliver',
+                                      style: GoogleFonts.montserrat(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 22)),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    'With over 30 years of experience as a Nurse in the healthcare industry, Jessica is a dedicated and passionate Care Partner at Lyn. Her vast background gives her a unique specialty to guide Members with multiple chronic conditions to meet their goals. Her passion is to guide, teach and listen to each member to inspire and cultivate a healthier lifestyle. Jessica is a proud grandmother of 8, and loves to bake.',
+                                    style: GoogleFonts.montserrat(fontSize: 18),
+                                    overflow: TextOverflow.visible,
+                                  ),
+                                ]),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
-            )
-          ],
+              const SizedBox(height: 30),
+              Container(
+                width: w,
+                height: h * .2,
+                color: const Color(0xfff8f7f1),
+                padding: EdgeInsets.symmetric(horizontal: w * .1, vertical: 20),
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        InkWell(
+                            onTap: () {},
+                            child: const Text('Privacy & Security',
+                                style: TextStyle(
+                                    color: Color(0xff000000), fontSize: 15))),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        InkWell(
+                            onTap: () {},
+                            child: const Text('Terms of use',
+                                style: TextStyle(
+                                    color: Color(0xff000000), fontSize: 15))),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        InkWell(
+                            onTap: () {},
+                            child: const Text('Privacy policy',
+                                style: TextStyle(
+                                    color: Color(0xff000000), fontSize: 15))),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Flexible(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                                ' \u00a9 2023. Lyn Health, Inc. All rights reserved.',
+                                style: TextStyle(
+                                    color: Color(0xff000000), fontSize: 15)),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              'If you, a friend or a loved one are having suicidal thoughts, call the National Suicide Prevention Lifeline at 800-273-8255 (800-273-TALK) for free and confidential support. It is open 24 hours a day, seven days a week. For crisis support in Spanish, call 888-628-9454. The Trevor Project, a suicide prevention counseling service for the LGBTQ+ community, can be reached at 866-488-7386.',
+                              overflow: TextOverflow.ellipsis,
+                              softWrap: false,
+                              maxLines: 3,
+                              style: TextStyle(
+                                  color: Color(0xff000000), fontSize: 15),
+                            )
+                          ]),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
