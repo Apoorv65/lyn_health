@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../first_consultation_mob.dart';
 
 class Confirmation extends StatefulWidget {
@@ -13,75 +12,99 @@ class Confirmation extends StatefulWidget {
 class _ConfirmationState extends State<Confirmation> {
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          SizedBox(
-            height: 60,
-            child: Row(
-
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Container(
+          Stack(
+            children: [
+              Align(
+                alignment: AlignmentDirectional.topStart,
+                child: ClipPath(
+                  clipper: MyFirstPolygon(),
+                  child:  Container(
+                      height: 65,
+                      width: w*.33,
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
-                      ),
-                      child: Center(
-                          child: Text(
-                        'Choose Appointment',textAlign: TextAlign.center,
-                        style: GoogleFonts.kumbhSans(
-                            textStyle: const TextStyle(
-                          color: Colors.black,
-                        )),
-                      ))),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                      ),
-                      child: Center(
-                          child: Text(
-                        'Your Info',
-                        style: GoogleFonts.kumbhSans(
-                            textStyle: const TextStyle(
-                          color: Colors.black,
-                        )),
-                      ))),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade50,
-                        border: const Border(
-                          bottom: BorderSide(
-                            color: Colors.black,
-                            width: 3.0,
-                          ),
+                        border:const Border(
+                          right: BorderSide(color: Colors.black12),
+                          top: BorderSide(color: Colors.black12),
+                          left: BorderSide(color: Colors.black12),
+                          bottom: BorderSide(color: Colors.black12),
                         ),
                       ),
                       child: Center(
                           child: Text(
-                        'Confirmation',
-                        style: GoogleFonts.kumbhSans(
-                            textStyle: const TextStyle(
-                          color: Colors.black,
-                        )),
-                      ))),
+                            'Choose Appointment',
+                            style: GoogleFonts.kumbhSans(
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                )),
+                          ))),
                 ),
-              ],
-            ),
-          ),
+              ),
+              Positioned(
+                left: w*.5-(w*.2),
+                right: w*.5-(w*.2),
+                child: ClipPath(
+                  clipper: MySecondPolygon(),
+                  child: Container(
+                      height: 65,
+                      width: w * .36,
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        border: const Border(
+                          right: BorderSide(color: Colors.black),
+                          top: BorderSide(color: Colors.black12),
+                          left: BorderSide(color: Colors.black),
+                          bottom: BorderSide(color: Colors.black12),
+                        ),
+                      ),
+                      child: Center(
+                          child: Text(
+                            'Your Info',
+                            style: GoogleFonts.kumbhSans(
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                )),
+                          ))),
+                ),
+              ),
+              Positioned(
+                right: 0,
+                child: ClipPath(
+                  clipper: MyThirdPolygon(),
+                  child:  Container(
+                      height: 65,
+                      width: w*.33,
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        border: Border(
+                          right: BorderSide(color: Colors.black12),
+                          top: BorderSide(color: Colors.black12),
+                          left: BorderSide(color: Colors.black12),
+                          bottom: BorderSide(color: Colors.black,
+                              width: 3.0,),
+                        ),
+                      ),
+                      child: Center(
+                          child: Text(
+                            'Confirmation',
+                            style: GoogleFonts.kumbhSans(
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                )),
+                          ))),
+                ),
+              ),
+            ],),
+
           SizedBox(height: MediaQuery.of(context).size.height * .05),
           Card(
             elevation: 8,
@@ -124,7 +147,7 @@ class _ConfirmationState extends State<Confirmation> {
                             child: ElevatedButton(
                               onPressed: () {
                                 setState(() {
-                                  changeNotifier_mob.value = false;
+                                  changeNotifier_mob.value = 0;
                                   selectedTabIndex = 1;
                                 });
                               },

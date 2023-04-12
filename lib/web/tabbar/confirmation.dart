@@ -19,7 +19,7 @@ class _ConfirmationState extends State<Confirmation> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          SizedBox(
+          /*SizedBox(
             height: 65,
             child: Row(
               children: [
@@ -79,7 +79,97 @@ class _ConfirmationState extends State<Confirmation> {
                 ),
               ],
             ),
-          ),
+          ),*/
+
+          Stack(
+            children: [
+              Align(
+                alignment: AlignmentDirectional.topStart,
+                child: ClipPath(
+                  clipper: MyFirstPolygon(),
+                  child:  Container(
+                      height: 65,
+                      width: w*.28,
+                      padding: const EdgeInsets.all(20),
+                      decoration:  BoxDecoration(
+                        color: Colors.grey.shade200,
+                        border:const Border(
+                          right: BorderSide(color: Colors.black12),
+                          top: BorderSide(color: Colors.black12),
+                          left: BorderSide(color: Colors.black12),
+                          bottom: BorderSide(
+                            color: Colors.black12
+                          ),
+                        ),
+                      ),
+                      child: Center(
+                          child: Text(
+                            'Choose Appointment',
+                            style: GoogleFonts.kumbhSans(
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                )),
+                          ))),
+                ),
+              ),
+              Positioned(
+                left: w*.5-(w*.25),
+                right: w*.5-(w*.25),
+                child: ClipPath(
+                  clipper: MySecondPolygon(),
+                  child:  Container(
+                      height: 65,
+                      width: w*.29,
+                      padding: const EdgeInsets.all(20),
+                      decoration:  BoxDecoration(
+                        color: Colors.grey.shade200,
+                        border: const Border(
+                          right: BorderSide(color: Colors.black),
+                          top: BorderSide(color: Colors.black12),
+                          left: BorderSide(color: Colors.black),
+                          bottom: BorderSide(color: Colors.black12),
+                        ),
+                      ),
+                      child: Center(
+                          child: Text(
+                            'Your Info',
+                            style: GoogleFonts.kumbhSans(
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                )),
+                          ))),
+                ),
+              ),
+              Positioned(
+                right: 0,
+                child: ClipPath(
+                  clipper: MyThirdPolygon(),
+                  child:  Container(
+                      height: 65,
+                      width: w*.28,
+                      padding: const EdgeInsets.all(20),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        border: Border(
+                          right: BorderSide(color: Colors.black12),
+                          top: BorderSide(color: Colors.black12),
+                          left: BorderSide(color: Colors.black12),
+                          bottom: BorderSide(color: Colors.black,
+                              width: 3.0,),
+                        ),
+                      ),
+                      child: Center(
+                          child: Text(
+                            'Confirmation',
+                            style: GoogleFonts.kumbhSans(
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                )),
+                          ))),
+                ),
+              ),
+            ],),
+
           SizedBox(height: MediaQuery.of(context).size.height * .05),
           Card(
             elevation: 8,
@@ -119,7 +209,7 @@ class _ConfirmationState extends State<Confirmation> {
                             child: ElevatedButton(
                               onPressed: () {
                                 setState(() {
-                                  changeNotifier.value = false;
+                                  changeNotifier.value = 0;
                                   selectedTabIndex = 1;
                                 });
                               },

@@ -6,7 +6,7 @@ import 'tabbar/confirmation.dart';
 import 'tabbar/yourInfo.dart';
 
 int selectedTabIndex = 1;
-ValueNotifier<bool> changeNotifier_mob = ValueNotifier<bool>(false);
+ValueNotifier<int> changeNotifier_mob = ValueNotifier<int>(0);
 
 class FirstConsultationMob extends StatefulWidget {
   const FirstConsultationMob({Key? key}) : super(key: key);
@@ -175,7 +175,7 @@ class _FirstConsultationMobState extends State<FirstConsultationMob>
                         valueListenable: changeNotifier_mob,
                         builder:
                             (BuildContext context, value, Widget? child) {
-                          if (changeNotifier_mob.value == true) {
+                          if (changeNotifier_mob.value == 1) {
                             selectedTabIndex = 2;
                           }
                           return getTabsWidget(selectedTabIndex);
@@ -316,5 +316,66 @@ Widget getTabsWidget(int index) {
 
     default:
       return Container();
+  }
+}
+
+class MyFirstPolygon extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.addPolygon([
+      Offset(0, size.height / 2),
+      Offset(0, size.height),
+      Offset(size.width * .9, size.height),
+      Offset(size.width, size.height / 2),
+      Offset(size.width * .9, 0),
+      const Offset(0, 0)
+    ], true);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+class MySecondPolygon extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.addPolygon([
+      Offset(size.width*.05, size.height / 2),
+      Offset(0, size.height),
+      Offset(size.width * .95, size.height),
+      Offset(size.width, size.height / 2),
+      Offset(size.width * .95, 0),
+      const Offset(0, 0)
+    ], true);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+class MyThirdPolygon extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.addPolygon([
+      Offset(size.width*.1, size.height / 2),
+      Offset(0, size.height),
+      Offset(size.width, size.height),
+      Offset(size.width, size.height / 2),
+      Offset(size.width, 0),
+      const Offset(0, 0)
+    ], true);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
   }
 }

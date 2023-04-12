@@ -7,7 +7,7 @@ import 'tabbar/confirmation.dart';
 import 'tabbar/yourInfo.dart';
 
 int selectedTabIndex = 1;
-ValueNotifier<bool> changeNotifier = ValueNotifier<bool>(false);
+ValueNotifier<int> changeNotifier = ValueNotifier<int>(0);
 
 class FirstConsultation extends StatefulWidget {
   const FirstConsultation({Key? key}) : super(key: key);
@@ -115,16 +115,15 @@ class _FirstConsultationState extends State<FirstConsultation> {
                   child: Text('Begin by finding a time to meet us.',
                       style: GoogleFonts.montserrat(fontSize: 45))),
               const SizedBox(height: 20),
-              Container(),
               SizedBox(
-                  height: h * .79,
+                  height: h * .84,
                   width: w * .85,
                   child: Padding(
                     padding: const EdgeInsets.all(40),
                     child: ValueListenableBuilder(
                       valueListenable: changeNotifier,
                       builder: (BuildContext context, value, Widget? child) {
-                        if(changeNotifier.value== true){
+                        if(changeNotifier.value == 1){
                           selectedTabIndex = 2;
                         }
                         return getTabsWidget(selectedTabIndex);
@@ -333,5 +332,66 @@ Widget getTabsWidget(int index) {
 
     default:
       return Container();
+  }
+}
+
+class MyFirstPolygon extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.addPolygon([
+      Offset(0, size.height / 2),
+      Offset(0, size.height),
+      Offset(size.width * .9, size.height),
+      Offset(size.width, size.height / 2),
+      Offset(size.width * .9, 0),
+      const Offset(0, 0)
+    ], true);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+class MySecondPolygon extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.addPolygon([
+      Offset(size.width*.1, size.height / 2),
+      Offset(0, size.height),
+      Offset(size.width * .9, size.height),
+      Offset(size.width, size.height / 2),
+      Offset(size.width * .9, 0),
+      const Offset(0, 0)
+    ], true);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+class MyThirdPolygon extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.addPolygon([
+      Offset(size.width*.1, size.height / 2),
+      Offset(0, size.height),
+      Offset(size.width, size.height),
+      Offset(size.width, size.height / 2),
+      Offset(size.width, 0),
+      const Offset(0, 0)
+    ], true);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
   }
 }
