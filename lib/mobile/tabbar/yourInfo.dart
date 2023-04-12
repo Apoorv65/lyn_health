@@ -93,9 +93,9 @@ class _YourInfoState extends State<YourInfo> {
                         decoration: const BoxDecoration(
                           color: Colors.white,
                           border: Border(
-                            right: BorderSide(color: Colors.black),
+                            right: BorderSide(color: Colors.black12),
                             top: BorderSide(color: Colors.black12),
-                            left: BorderSide(color: Colors.black),
+                            left: BorderSide(color: Colors.black12),
                             bottom: BorderSide(color: Colors.black, width: 3),
                           ),
                         ),

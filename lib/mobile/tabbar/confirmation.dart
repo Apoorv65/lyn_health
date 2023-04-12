@@ -29,7 +29,7 @@ class _ConfirmationState extends State<Confirmation> {
                       width: w*.33,
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
+                        color: Colors.red.shade200,
                         border:const Border(
                           right: BorderSide(color: Colors.black12),
                           top: BorderSide(color: Colors.black12),
@@ -48,8 +48,8 @@ class _ConfirmationState extends State<Confirmation> {
                 ),
               ),
               Positioned(
-                left: w*.5-(w*.2),
-                right: w*.5-(w*.2),
+                left: w*.5-(w*.21),
+                right: w*.5-(w*.21),
                 child: ClipPath(
                   clipper: MySecondPolygon(),
                   child: Container(
@@ -59,9 +59,9 @@ class _ConfirmationState extends State<Confirmation> {
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
                         border: const Border(
-                          right: BorderSide(color: Colors.black),
+                          right: BorderSide(color: Colors.black12),
                           top: BorderSide(color: Colors.black12),
-                          left: BorderSide(color: Colors.black),
+                          left: BorderSide(color: Colors.black12),
                           bottom: BorderSide(color: Colors.black12),
                         ),
                       ),

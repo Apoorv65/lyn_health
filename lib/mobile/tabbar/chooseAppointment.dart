@@ -68,8 +68,8 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
                   ),
                 ),
                 Positioned(
-                  left: w*.5-(w*.2),
-                  right: w*.5-(w*.2),
+                  left: w*.5-(w*.21),
+                  right: w*.5-(w*.21),
                   child: ClipPath(
                     clipper: MySecondPolygon(),
                     child: Container(
@@ -79,7 +79,7 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
                         decoration: BoxDecoration(
                           color: Colors.grey.shade200,
                         border: const Border(
-                        right: BorderSide(color: Colors.black),
+                        right: BorderSide(color: Colors.black12),
                           top: BorderSide(color: Colors.black12),
                           left: BorderSide(color: Colors.black12),
                           bottom: BorderSide(color: Colors.black12),
