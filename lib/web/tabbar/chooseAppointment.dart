@@ -172,6 +172,10 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
                             selectedDayPredicate: (day) =>
                                 isSameDay(day, today),
                             headerStyle: HeaderStyle(
+                                leftChevronIcon: const Icon(Icons.chevron_left_rounded,
+                                    color: Colors.black),
+                                rightChevronIcon: const Icon(Icons.chevron_right_rounded,
+                                    color: Colors.black),
                                 formatButtonVisible: false,
                                 titleCentered: true,
                                 titleTextStyle: GoogleFonts.montserrat(

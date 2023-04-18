@@ -342,9 +342,9 @@ class MyFirstPolygon extends CustomClipper<Path> {
     path.addPolygon([
       Offset(0, size.height / 2),
       Offset(0, size.height),
-      Offset(size.width * .9, size.height),
+      Offset(size.width * .95, size.height),
       Offset(size.width, size.height / 2),
-      Offset(size.width * .9, 0),
+      Offset(size.width * .95, 0),
       const Offset(0, 0)
     ], true);
     return path;
@@ -360,11 +360,11 @@ class MySecondPolygon extends CustomClipper<Path> {
   Path getClip(Size size) {
     Path path = Path();
     path.addPolygon([
-      Offset(size.width*.1, size.height / 2),
+      Offset(size.width*.05, size.height / 2),
       Offset(0, size.height),
-      Offset(size.width * .9, size.height),
+      Offset(size.width * .95, size.height),
       Offset(size.width, size.height / 2),
-      Offset(size.width * .9, 0),
+      Offset(size.width * .95, 0),
       const Offset(0, 0)
     ], true);
     return path;
@@ -380,7 +380,7 @@ class MyThirdPolygon extends CustomClipper<Path> {
   Path getClip(Size size) {
     Path path = Path();
     path.addPolygon([
-      Offset(size.width*.1, size.height / 2),
+      Offset(size.width*.05, size.height / 2),
       Offset(0, size.height),
       Offset(size.width, size.height),
       Offset(size.width, size.height / 2),

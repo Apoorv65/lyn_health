@@ -41,7 +41,7 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
                   alignment: AlignmentDirectional.topStart,
                   child: ClipPath(
                     clipper: MyFirstPolygon(),
-                    child:  Container(
+                    child: Container(
                         height: 65,
                         width: w * .33,
                         padding: const EdgeInsets.all(10),
@@ -59,40 +59,40 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
                         ),
                         child: Center(
                             child: Text(
-                              'Choose Appointment',
-                              style: GoogleFonts.kumbhSans(
-                                  textStyle: const TextStyle(
-                                    color: Colors.black,
-                                  )),
-                            ))),
+                          'Choose Appointment',
+                          style: GoogleFonts.kumbhSans(
+                              textStyle: const TextStyle(
+                            color: Colors.black,
+                          )),
+                        ))),
                   ),
                 ),
                 Positioned(
-                  left: w*.5-(w*.21),
-                  right: w*.5-(w*.21),
+                  left: w * .5 - (w * .21),
+                  right: w * .5 - (w * .21),
                   child: ClipPath(
                     clipper: MySecondPolygon(),
                     child: Container(
-                      height: 65,
+                        height: 65,
                         width: w * .36,
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           color: Colors.grey.shade200,
-                        border: const Border(
-                        right: BorderSide(color: Colors.black12),
-                          top: BorderSide(color: Colors.black12),
-                          left: BorderSide(color: Colors.black12),
-                          bottom: BorderSide(color: Colors.black12),
-                        ),
+                          border: const Border(
+                            right: BorderSide(color: Colors.black12),
+                            top: BorderSide(color: Colors.black12),
+                            left: BorderSide(color: Colors.black12),
+                            bottom: BorderSide(color: Colors.black12),
+                          ),
                         ),
                         child: Center(
                             child: Text(
-                              'Your Info',
-                              style: GoogleFonts.kumbhSans(
-                                  textStyle: const TextStyle(
-                                    color: Colors.black,
-                                  )),
-                            ))),
+                          'Your Info',
+                          style: GoogleFonts.kumbhSans(
+                              textStyle: const TextStyle(
+                            color: Colors.black,
+                          )),
+                        ))),
                   ),
                 ),
                 Positioned(
@@ -106,24 +106,24 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
                         decoration: BoxDecoration(
                           color: Colors.grey.shade200,
                           border: const Border(
-                          right: BorderSide(color: Colors.black12),
-                          top: BorderSide(color: Colors.black12),
-                          left: BorderSide(color: Colors.black12),
-                          bottom: BorderSide(color: Colors.black12),
-                        ),
+                            right: BorderSide(color: Colors.black12),
+                            top: BorderSide(color: Colors.black12),
+                            left: BorderSide(color: Colors.black12),
+                            bottom: BorderSide(color: Colors.black12),
+                          ),
                         ),
                         child: Center(
                             child: Text(
-                              'Confirmation',
-                              style: GoogleFonts.kumbhSans(
-                                  textStyle: const TextStyle(
-                                    color: Colors.black,
-                                  )),
-                            ))),
+                          'Confirmation',
+                          style: GoogleFonts.kumbhSans(
+                              textStyle: const TextStyle(
+                            color: Colors.black,
+                          )),
+                        ))),
                   ),
                 ),
-              ],),
-
+              ],
+            ),
             const SizedBox(height: 10),
             Container(
               width: MediaQuery.of(context).size.width,
@@ -167,9 +167,12 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
                           focusedDay: today,
                           onDaySelected: _onDaySelected,
                           availableGestures: AvailableGestures.all,
-                          selectedDayPredicate: (day) =>
-                              isSameDay(day, today),
+                          selectedDayPredicate: (day) => isSameDay(day, today),
                           headerStyle: HeaderStyle(
+                              leftChevronIcon: const Icon(Icons.chevron_left_rounded,
+                                  color: Colors.black),
+                              rightChevronIcon: const Icon(Icons.chevron_right_rounded,
+                                  color: Colors.black),
                               formatButtonVisible: false,
                               titleCentered: true,
                               titleTextStyle: GoogleFonts.montserrat(
@@ -192,20 +195,15 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold)),
                         ),
-
-                         const SizedBox(height: 50),
+                        const SizedBox(height: 50),
                         Text(today.toString(),
                             style: GoogleFonts.montserrat(fontSize: 20)),
                         const SizedBox(height: 25),
-
                         Text('Time Zone:  ',
-                          style: GoogleFonts.montserrat(fontSize: 18)),
-
-                        Text('India Standard Time (GMT+05:30)'
-                                .toUpperCase(),
-                            style: GoogleFonts.montserrat(fontSize: 16,
-                                fontWeight: FontWeight.bold)),
-
+                            style: GoogleFonts.montserrat(fontSize: 18)),
+                        Text('India Standard Time (GMT+05:30)'.toUpperCase(),
+                            style: GoogleFonts.montserrat(
+                                fontSize: 16, fontWeight: FontWeight.bold)),
                         const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -224,8 +222,7 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
                                 width: 150,
                                 height: 60,
                                 decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: Colors.grey)),
+                                    border: Border.all(color: Colors.grey)),
                                 child: Center(
                                   child: Text(
                                     TimeOfDay.fromDateTime(DateTime.now())
@@ -251,4 +248,3 @@ class _ChooseAppointmentState extends State<ChooseAppointment> {
     );
   }
 }
-
